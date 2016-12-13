@@ -1,7 +1,2 @@
-/ehcache.xml
-/jdbc.properties
-/log4j.properties
+/web/
 /mybatis/
-/org/
-/spring-content.xml
-/spring-servlet.xml

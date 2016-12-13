@@ -24,7 +24,7 @@
 	
 	<bean id="myObjectMapper" class="mapper.MyObjectMapper"></bean>
 	
-	<context:component-scan base-package="com.codyy.stxx.web.*.controller"/>
+	<context:component-scan base-package="web.controller"/>
 	
 	<mvc:resources location="/image/" mapping="/image/**"/>
 	

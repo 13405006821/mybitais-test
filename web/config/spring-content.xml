@@ -43,7 +43,8 @@
 		<property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
 	</bean>
 	
-	<context:component-scan base-package="org.keys.*" />
+	<context:component-scan base-package="web.dao" />
+	<context:component-scan base-package="web.service" />
 	
 	<!-- 配置数据源druid -->
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
