@@ -19,5 +19,13 @@ public class UserDao {
 	public List<User> findAll(PageData pd)throws Exception{
 		return (List<User>) dao.findForList("userMapper.findAll", pd);
 	}
+
+	public void save(PageData pd) throws Exception {
+		dao.save("userMapper.save", pd);
+	}
+
+	public void update(PageData pd) throws Exception {
+		dao.update("userMapper.update", pd);
+	}
 }
 

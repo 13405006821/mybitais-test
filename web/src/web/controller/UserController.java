@@ -31,4 +31,34 @@ public class UserController extends BaseController {
 		}
 		return json;
 	}
+	
+	@RequestMapping({ "/saveUser" })
+	@ResponseBody
+	public Json saveUser() throws Exception {
+		Json json = new Json();
+		try {
+			PageData pd = getPageData();
+			userService.saveUser(pd);
+			json.setSuccess(true);
+		} catch (Exception e) {
+			json.setSuccess(false);
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	@RequestMapping({ "/updateUser" })
+	@ResponseBody
+	public Json updateUser() throws Exception {
+		Json json = new Json();
+		try {
+			PageData pd = getPageData();
+			userService.updateUser(pd);
+			json.setSuccess(true);
+		} catch (Exception e) {
+			json.setSuccess(false);
+			e.printStackTrace();
+		}
+		return json;
+	}
 }
