@@ -1,7 +1,5 @@
 package base.controller;
 
-import java.util.UUID;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -33,10 +31,5 @@ public class BaseController {
 		String basePath = request.getScheme() + "://" + request.getServerName()
 				+ ":" + request.getServerPort() + path + "/";
 		return basePath;
-	}
-
-	public String get32UUID() {
-		String uuid = UUID.randomUUID().toString().trim().replaceAll("-", "");
-		return uuid;
 	}
 }
