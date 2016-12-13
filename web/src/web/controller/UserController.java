@@ -17,9 +17,9 @@ public class UserController extends BaseController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping({ "/getUsers" })
+	@RequestMapping({ "/findAll" })
 	@ResponseBody
-	public Json getUsers() throws Exception {
+	public Json findAll() throws Exception {
 		Json json = new Json();
 		try {
 			PageData pd = getPageData();
@@ -32,13 +32,13 @@ public class UserController extends BaseController {
 		return json;
 	}
 	
-	@RequestMapping({ "/saveUser" })
+	@RequestMapping({ "/save" })
 	@ResponseBody
-	public Json saveUser() throws Exception {
+	public Json save() throws Exception {
 		Json json = new Json();
 		try {
 			PageData pd = getPageData();
-			userService.saveUser(pd);
+			userService.save(pd);
 			json.setSuccess(true);
 		} catch (Exception e) {
 			json.setSuccess(false);
@@ -47,13 +47,28 @@ public class UserController extends BaseController {
 		return json;
 	}
 	
-	@RequestMapping({ "/updateUser" })
+	@RequestMapping({ "/update" })
 	@ResponseBody
-	public Json updateUser() throws Exception {
+	public Json update() throws Exception {
 		Json json = new Json();
 		try {
 			PageData pd = getPageData();
-			userService.updateUser(pd);
+			userService.update(pd);
+			json.setSuccess(true);
+		} catch (Exception e) {
+			json.setSuccess(false);
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
+	@RequestMapping({ "/delete" })
+	@ResponseBody
+	public Json delete() throws Exception {
+		Json json = new Json();
+		try {
+			PageData pd = getPageData();
+			userService.delete(pd);
 			json.setSuccess(true);
 		} catch (Exception e) {
 			json.setSuccess(false);

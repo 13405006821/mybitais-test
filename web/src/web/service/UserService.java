@@ -20,13 +20,17 @@ public class UserService {
 		return userDao.findAll(pd);
 	}
 
-	public void saveUser(PageData pd) throws Exception {
+	public void save(PageData pd) throws Exception {
 		pd.put("id", UuidUtil.get32UUID());
 		userDao.save(pd);
 	}
 
-	public void updateUser(PageData pd) throws Exception {
+	public void update(PageData pd) throws Exception {
 		userDao.update(pd);
+	}
+
+	public void delete(PageData pd) throws Exception {
+		userDao.delete(pd);
 	}
 }
 

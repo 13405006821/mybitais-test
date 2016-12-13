@@ -16,4 +16,8 @@
 		set username=#{username}, password=#{password}
 		where id=#{id}
 	</update>
+	
+	<delete id="delete" parameterType="pd">
+		delete from t_user where id=#{id}
+	</delete>
 </mapper>

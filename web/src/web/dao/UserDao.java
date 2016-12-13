@@ -27,5 +27,9 @@ public class UserDao {
 	public void update(PageData pd) throws Exception {
 		dao.update("userMapper.update", pd);
 	}
+
+	public void delete(PageData pd) throws Exception {
+		dao.update("userMapper.delete", pd);
+	}
 }
 
