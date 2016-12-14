@@ -7,7 +7,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.SqlSessionTemplate;
 
-@SuppressWarnings("rawtypes")
 public class DaoSupport implements DAO {
 
 	private SqlSessionTemplate sqlSessionTemplate;
@@ -16,7 +15,7 @@ public class DaoSupport implements DAO {
 		return Integer.valueOf(this.sqlSessionTemplate.insert(str, obj));
 	}
 
-	public Object batchSave(String str, List objs) throws Exception {
+	public Object batchSave(String str, List<Object> objs) throws Exception {
 		return Integer.valueOf(this.sqlSessionTemplate.insert(str, objs));
 	}
 
@@ -24,7 +23,7 @@ public class DaoSupport implements DAO {
 		return Integer.valueOf(this.sqlSessionTemplate.update(str, obj));
 	}
 
-	public void batchUpdate(String str, List objs) throws Exception {
+	public void batchUpdate(String str, List<Object> objs) throws Exception {
 		SqlSessionFactory sqlSessionFactory = this.sqlSessionTemplate.getSqlSessionFactory();
 
 		SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH, false);
@@ -43,7 +42,7 @@ public class DaoSupport implements DAO {
 		}
 	}
 
-	public Object batchDelete(String str, List objs) throws Exception {
+	public Object batchDelete(String str, List<Object> objs) throws Exception {
 		return Integer.valueOf(this.sqlSessionTemplate.delete(str, objs));
 	}
 
