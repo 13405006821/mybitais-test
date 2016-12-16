@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 import base.dao.DaoSupport;
 import model.PageData;
 import util.UuidUtil;
-import web.entity.User;
 
 @Repository("userDao")
 public class UserDao {
@@ -17,8 +16,8 @@ public class UserDao {
 	private DaoSupport dao;
 
 	@SuppressWarnings("unchecked")
-	public List<User> findAll(PageData pd)throws Exception{
-		return (List<User>) dao.findForList("userMapper.findAll", pd);
+	public List<PageData> findAll(PageData pd)throws Exception{
+		return (List<PageData>) dao.findForList("userMapper.findAll", pd);
 	}
 
 	public void save(PageData pd) throws Exception {
