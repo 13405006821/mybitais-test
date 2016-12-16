@@ -22,9 +22,8 @@ public class UserController extends BaseController {
 	public Json findAll() throws Exception {
 		Json json = new Json();
 		try {
-			PageData pd = getPageData();
 			json.setSuccess(true);
-			json.setObj(userService.findAll(pd));
+			json.setObj(userService.findAll());
 		} catch (Exception e) {
 			json.setSuccess(false);
 			e.printStackTrace();

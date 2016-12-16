@@ -16,8 +16,8 @@ public class UserDao {
 	private DaoSupport dao;
 
 	@SuppressWarnings("unchecked")
-	public List<PageData> findAll(PageData pd)throws Exception{
-		return (List<PageData>) dao.findForList("userMapper.findAll", pd);
+	public List<PageData> findAll()throws Exception{
+		return (List<PageData>) dao.findForList("userMapper.findAll", null);
 	}
 	
 	public PageData findById(PageData pd) throws Exception{

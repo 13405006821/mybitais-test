@@ -14,8 +14,8 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 
-	public List<PageData> findAll(PageData pd)throws Exception{
-		return userDao.findAll(pd);
+	public List<PageData> findAll()throws Exception{
+		return userDao.findAll();
 	}
 	
 	public PageData findById(PageData pd)throws Exception{
