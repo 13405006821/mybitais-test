@@ -17,6 +17,10 @@ public class UserService {
 	public List<PageData> findAll(PageData pd)throws Exception{
 		return userDao.findAll(pd);
 	}
+	
+	public PageData findById(PageData pd)throws Exception{
+		return userDao.findById(pd);
+	}
 
 	public void save(PageData pd) throws Exception {
 		userDao.save(pd);

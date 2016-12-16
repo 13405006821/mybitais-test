@@ -32,6 +32,21 @@ public class UserController extends BaseController {
 		return json;
 	}
 	
+	@RequestMapping({ "/findById" })
+	@ResponseBody
+	public Json findById() throws Exception {
+		Json json = new Json();
+		try {
+			PageData pd = getPageData();
+			json.setSuccess(true);
+			json.setObj(userService.findById(pd));
+		} catch (Exception e) {
+			json.setSuccess(false);
+			e.printStackTrace();
+		}
+		return json;
+	}
+	
 	@RequestMapping({ "/save" })
 	@ResponseBody
 	public Json save() throws Exception {

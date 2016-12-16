@@ -19,6 +19,10 @@ public class UserDao {
 	public List<PageData> findAll(PageData pd)throws Exception{
 		return (List<PageData>) dao.findForList("userMapper.findAll", pd);
 	}
+	
+	public PageData findById(PageData pd) throws Exception{
+		return (PageData) dao.findForObject("userMapper.findById", pd);
+	}
 
 	public void save(PageData pd) throws Exception {
 		pd.put("id", UuidUtil.get32UUID());

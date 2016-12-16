@@ -6,6 +6,10 @@
 		select * from t_user
 	</select>
 	
+	<select id="findById" parameterType="pd" resultType="pd">
+		select * from t_user where id=#{id}
+	</select>
+	
 	<insert id="save" parameterType="pd">
 		insert into t_user (id, username, password) value (#{id},#{username},#{password})
 	</insert>
