@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import base.dao.DaoSupport;
 import model.PageData;
+import util.UuidUtil;
 import web.entity.User;
 
 @Repository("userDao")
@@ -21,6 +22,7 @@ public class UserDao {
 	}
 
 	public void save(PageData pd) throws Exception {
+		pd.put("id", UuidUtil.get32UUID());
 		dao.save("userMapper.save", pd);
 	}
 
