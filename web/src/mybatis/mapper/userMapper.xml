@@ -11,7 +11,8 @@
 	</select>
 	
 	<insert id="save" parameterType="pd">
-		insert into t_user (id, username, password) value (#{id},#{username},#{password})
+		insert into t_user (id, username, password, realname) 
+		value (#{id},#{username},#{password},#{realname})
 	</insert>
 	
 	<update id="update" parameterType="pd">

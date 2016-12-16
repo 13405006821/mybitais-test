@@ -9,7 +9,6 @@
 		<setting name="callSettersOnNulls" value="true"/>
 	</settings>
 	<typeAliases>
-		<typeAlias type="web.entity.User" alias="user"/>
 		<typeAlias type="model.PageData" alias="pd"/>
 	</typeAliases>
 </configuration>
