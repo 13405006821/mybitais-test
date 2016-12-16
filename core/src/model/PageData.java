@@ -149,7 +149,18 @@ private static final long serialVersionUID = 1L;
 	}
 	
 	public String getString(Object key) {
-		return (String)get(key);
+		Object object = get(key);
+		if(object == null){
+			return null;
+		}
+		return object.toString();
+	}
+	
+	public static void main(String[] args) {
+		PageData pd = new PageData();
+		System.out.println(pd.getString("id"));
+		System.out.println(pd.get("id"));
+		System.out.println(pd.get("id").toString());
 	}
 	
 	@Override
