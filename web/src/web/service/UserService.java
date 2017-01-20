@@ -18,20 +18,20 @@ public class UserService {
 		return userDao.findAll();
 	}
 	
-	public PageData findById(PageData pd)throws Exception{
-		return userDao.findById(pd);
+	public PageData findById(String id)throws Exception{
+		return userDao.findById(id);
 	}
 
-	public void save(PageData pd) throws Exception {
-		userDao.save(pd);
+	public void save(String username, String password) throws Exception {
+		userDao.save(username, password);
 	}
 
-	public void update(PageData pd) throws Exception {
-		userDao.update(pd);
+	public void update(String id, String username, String password) throws Exception {
+		userDao.update(id, username, password);
 	}
 
-	public void delete(PageData pd) throws Exception {
-		userDao.delete(pd);
+	public void delete(String id) throws Exception {
+		userDao.delete(id);
 	}
 }
 

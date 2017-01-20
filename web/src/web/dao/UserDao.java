@@ -20,20 +20,31 @@ public class UserDao {
 		return (List<PageData>) dao.findForList("userMapper.findAll", null);
 	}
 	
-	public PageData findById(PageData pd) throws Exception{
+	public PageData findById(String id) throws Exception{
+		PageData pd = new PageData();
+		pd.put("id", id);
 		return (PageData) dao.findForObject("userMapper.findById", pd);
 	}
 
-	public void save(PageData pd) throws Exception {
+	public void save(String username, String password) throws Exception {
+		PageData pd = new PageData();
 		pd.put("id", UuidUtil.get32UUID());
+		pd.put("username", username);
+		pd.put("password", password);
 		dao.save("userMapper.save", pd);
 	}
 
-	public void update(PageData pd) throws Exception {
+	public void update(String id, String username, String password) throws Exception {
+		PageData pd = new PageData();
+		pd.put("id", id);
+		pd.put("username", username);
+		pd.put("password", password);
 		dao.update("userMapper.update", pd);
 	}
 
-	public void delete(PageData pd) throws Exception {
+	public void delete(String id) throws Exception {
+		PageData pd = new PageData();
+		pd.put("id", id);
 		dao.update("userMapper.delete", pd);
 	}
 }

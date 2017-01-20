@@ -21,13 +21,8 @@ public class UserController extends BaseController {
 	@ResponseBody
 	public Json findAll() throws Exception {
 		Json json = new Json();
-		try {
-			json.setSuccess(true);
-			json.setObj(userService.findAll());
-		} catch (Exception e) {
-			json.setSuccess(false);
-			e.printStackTrace();
-		}
+		json.setSuccess(true);
+		json.setObj(userService.findAll());
 		return json;
 	}
 	
@@ -35,14 +30,9 @@ public class UserController extends BaseController {
 	@ResponseBody
 	public Json findById() throws Exception {
 		Json json = new Json();
-		try {
-			PageData pd = getPageData();
-			json.setSuccess(true);
-			json.setObj(userService.findById(pd));
-		} catch (Exception e) {
-			json.setSuccess(false);
-			e.printStackTrace();
-		}
+		PageData pd = getPageData();
+		json.setSuccess(true);
+		json.setObj(userService.findById(pd.getString("id")));
 		return json;
 	}
 	
@@ -50,14 +40,9 @@ public class UserController extends BaseController {
 	@ResponseBody
 	public Json save() throws Exception {
 		Json json = new Json();
-		try {
-			PageData pd = getPageData();
-			userService.save(pd);
-			json.setSuccess(true);
-		} catch (Exception e) {
-			json.setSuccess(false);
-			e.printStackTrace();
-		}
+		PageData pd = getPageData();
+		userService.save(pd.getString("username"), pd.getString("password"));
+		json.setSuccess(true);
 		return json;
 	}
 	
@@ -65,14 +50,9 @@ public class UserController extends BaseController {
 	@ResponseBody
 	public Json update() throws Exception {
 		Json json = new Json();
-		try {
-			PageData pd = getPageData();
-			userService.update(pd);
-			json.setSuccess(true);
-		} catch (Exception e) {
-			json.setSuccess(false);
-			e.printStackTrace();
-		}
+		PageData pd = getPageData();
+		userService.update(pd.getString("id"), pd.getString("username"), pd.getString("password"));
+		json.setSuccess(true);
 		return json;
 	}
 	
@@ -80,14 +60,9 @@ public class UserController extends BaseController {
 	@ResponseBody
 	public Json delete() throws Exception {
 		Json json = new Json();
-		try {
-			PageData pd = getPageData();
-			userService.delete(pd);
-			json.setSuccess(true);
-		} catch (Exception e) {
-			json.setSuccess(false);
-			e.printStackTrace();
-		}
+		PageData pd = getPageData();
+		userService.delete(pd.getString("id"));
+		json.setSuccess(true);
 		return json;
 	}
 }
