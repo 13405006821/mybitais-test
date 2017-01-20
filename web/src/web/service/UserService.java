@@ -38,4 +38,3 @@ public class UserService {
 		userDao.delete(id);
 	}
 }
-
