@@ -26,6 +26,16 @@ public class UserController extends BaseController {
 		return json;
 	}
 	
+	@RequestMapping({ "/findPage" })
+	@ResponseBody
+	public Json findPage() throws Exception {
+		Json json = new Json();
+		json.setSuccess(true);
+		PageData pd = getPageData();
+		json.setObj(userService.findPage(pd.getString("page"), pd.getString("pageSize")));
+		return json;
+	}
+	
 	@RequestMapping({ "/findById" })
 	@ResponseBody
 	public Json findById() throws Exception {

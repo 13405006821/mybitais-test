@@ -6,6 +6,10 @@
 		select * from t_user
 	</select>
 	
+	<select id="findPage" resultType="pd">
+		select * from t_user limit ${startIndex},${pageSize}
+	</select>
+	
 	<select id="findById" parameterType="pd" resultType="pd">
 		select * from t_user where id=#{id}
 	</select>

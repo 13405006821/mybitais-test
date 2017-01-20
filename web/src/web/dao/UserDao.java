@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 import base.dao.DaoSupport;
 import model.PageData;
-import util.UuidUtil;
+import util.PublicUtil;
 
 @Repository("userDao")
 public class UserDao {
@@ -19,6 +19,14 @@ public class UserDao {
 	public List<PageData> findAll()throws Exception{
 		return (List<PageData>) dao.findForList("userMapper.findAll", null);
 	}
+
+	@SuppressWarnings("unchecked")
+	public List<PageData> findPage(String page, String pageSize) throws Exception {
+		PageData pd = new PageData();
+		pd.put("startIndex", PublicUtil.getPageStartIndex(page, pageSize));
+		pd.put("pageSize", pageSize);
+		return (List<PageData>) dao.findForList("userMapper.findPage", pd);
+	}
 	
 	public PageData findById(String id) throws Exception{
 		PageData pd = new PageData();
@@ -28,7 +36,7 @@ public class UserDao {
 
 	public void save(String username, String password) throws Exception {
 		PageData pd = new PageData();
-		pd.put("id", UuidUtil.get32UUID());
+		pd.put("id", PublicUtil.get32UUID());
 		pd.put("username", username);
 		pd.put("password", password);
 		dao.save("userMapper.save", pd);
@@ -48,4 +56,3 @@ public class UserDao {
 		dao.update("userMapper.delete", pd);
 	}
 }
-

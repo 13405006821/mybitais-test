@@ -18,6 +18,10 @@ public class UserService {
 		return userDao.findAll();
 	}
 	
+	public List<PageData> findPage(String page, String pageSize)throws Exception{
+		return userDao.findPage(page, pageSize);
+	}
+	
 	public PageData findById(String id)throws Exception{
 		return userDao.findById(id);
 	}
