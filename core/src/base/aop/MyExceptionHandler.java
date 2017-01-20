@@ -1,16 +1,13 @@
 package base.aop;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.alibaba.fastjson.JSON;
-
 import model.Json;
+import util.PublicUtil;
 import util.SysConstants;
 
 /**
@@ -27,14 +24,7 @@ public class MyExceptionHandler implements HandlerExceptionResolver {
 		Json json = new Json();
 		json.setSuccess(false);
 		json.setMsg(SysConstants.SYS_ERROR);
-		response.setContentType("text/json;charset=utf-8");
-		try {
-			response.getWriter().write(JSON.toJSONString(json));
-			response.getWriter().flush();
-			response.getWriter().close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		PublicUtil.writeJson(json, response);
 		return null;
 	}
 }
