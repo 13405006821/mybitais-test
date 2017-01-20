@@ -14,10 +14,6 @@ public class UserService {
 	@Autowired
 	private UserDao userDao;
 
-	public List<PageData> findAll()throws Exception{
-		return userDao.findAll();
-	}
-	
 	public List<PageData> findPage(String page, String pageSize)throws Exception{
 		return userDao.findPage(page, pageSize);
 	}

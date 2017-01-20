@@ -17,15 +17,6 @@ public class UserController extends BaseController {
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping({ "/findAll" })
-	@ResponseBody
-	public Json findAll() throws Exception {
-		Json json = new Json();
-		json.setSuccess(true);
-		json.setObj(userService.findAll());
-		return json;
-	}
-	
 	@RequestMapping({ "/findPage" })
 	@ResponseBody
 	public Json findPage() throws Exception {

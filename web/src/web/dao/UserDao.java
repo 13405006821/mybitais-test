@@ -16,11 +16,6 @@ public class UserDao {
 	private DaoSupport dao;
 
 	@SuppressWarnings("unchecked")
-	public List<PageData> findAll()throws Exception{
-		return (List<PageData>) dao.findForList("userMapper.findAll", null);
-	}
-
-	@SuppressWarnings("unchecked")
 	public List<PageData> findPage(String page, String pageSize) throws Exception {
 		PageData pd = new PageData();
 		pd.put("startIndex", PublicUtil.getPageStartIndex(page, pageSize));
