@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
-import com.alibaba.fastjson.JSON;
-
 import model.PageData;
+import util.PublicUtil;
 
 public class BaseController {
 	protected Logger logger = Logger.getLogger(getClass());
@@ -35,22 +34,7 @@ public class BaseController {
 	 * @throws IOException
 	 */
 	public void writeJson(Object object) {
-		try {
-			String json = JSON.toJSONStringWithDateFormat(object, "yyyy-MM-dd HH:mm:ss");
-			getResponse().setContentType("text/json;charset=utf-8");
-			getResponse().getWriter().write(json);
-			getResponse().getWriter().flush();
-			getResponse().getWriter().close();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	public String getBasePath() {
-		String path = request.getContextPath();
-		String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
-				+ "/";
-		return basePath;
+		PublicUtil.writeJson(object, response);
 	}
 
 	public HttpServletResponse getResponse() {
