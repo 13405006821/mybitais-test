@@ -46,13 +46,6 @@ public class BaseController {
 		}
 	}
 
-	public String getBasePath() {
-		String path = request.getContextPath();
-		String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path
-				+ "/";
-		return basePath;
-	}
-
 	public HttpServletResponse getResponse() {
 		return response;
 	}

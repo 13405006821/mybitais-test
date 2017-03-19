@@ -12,17 +12,6 @@ public class Json implements java.io.Serializable {
 	private boolean success = false;// 是否成功
 	private String msg = "";// 提示信息
 	private Object obj = null;// 其他信息
-	
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
-
-	private int code=0;
-
 
 	public String getMsg() {
 		return msg;

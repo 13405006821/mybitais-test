@@ -1,5 +1,7 @@
 package web.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,13 +20,11 @@ public class UserController extends BaseController {
 	private UserService userService;
 
 	@RequestMapping({ "/findPage" })
-	@ResponseBody
-	public Json findPage() throws Exception {
-		Json json = new Json();
-		json.setSuccess(true);
+	public String findPage() throws Exception {
 		PageData pd = getPageData();
-		json.setObj(userService.findPage(pd.getString("page"), pd.getString("pageSize")));
-		return json;
+		List<PageData> users = userService.findPage(pd.getString("page"), pd.getString("pageSize"));
+		getRequest().setAttribute("users", users);
+		return "";
 	}
 	
 	@RequestMapping({ "/findById" })
