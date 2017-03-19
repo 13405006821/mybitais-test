@@ -8,6 +8,6 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry combineaccessrules="false" kind="src" path="/core"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/web"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/WEB"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
